@@ -1,4 +1,6 @@
-# Proyecto RUST en solana
+# PFM Rust - Solana
+![Proyecto Rust Solana](https://raw.githubusercontent.com/codecrypto-academy/rust-proyecto/refs/heads/assets/images/pfm-web3-rust.png)
+
 ## Especificaciones de la Aplicación de Gestión de Comunidades
 
 ### Descripción General
