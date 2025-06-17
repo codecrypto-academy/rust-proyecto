@@ -2,6 +2,9 @@
 
 Solana smart contract for managing community membership and polls using Anchor.
 
+- Source Repository: 
+> https://github.com/codecrypto-academy/pfm-rust-community-voting
+
 ### Quickstart
 ```
 anchor build && yarn install && anchor test
