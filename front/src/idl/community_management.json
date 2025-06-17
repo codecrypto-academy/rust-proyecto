@@ -1,0 +1,554 @@
+{
+  "address": "BahxHxGA1bq2uVGn9iPyzizFvccY779hFj7UHNnCgNJJ",
+  "metadata": {
+    "name": "community_management",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "approve_membership",
+      "discriminator": [
+        134,
+        27,
+        129,
+        176,
+        71,
+        244,
+        61,
+        255
+      ],
+      "accounts": [
+        {
+          "name": "community",
+          "writable": true
+        },
+        {
+          "name": "membership",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "cast_vote",
+      "discriminator": [
+        20,
+        212,
+        15,
+        189,
+        69,
+        180,
+        69,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "vote",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  111,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "poll"
+              },
+              {
+                "kind": "account",
+                "path": "voter"
+              }
+            ]
+          }
+        },
+        {
+          "name": "poll",
+          "writable": true
+        },
+        {
+          "name": "membership"
+        },
+        {
+          "name": "voter",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "option_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "close_poll",
+      "discriminator": [
+        139,
+        213,
+        162,
+        65,
+        172,
+        150,
+        123,
+        67
+      ],
+      "accounts": [
+        {
+          "name": "poll",
+          "writable": true
+        },
+        {
+          "name": "community"
+        },
+        {
+          "name": "authority",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_poll",
+      "discriminator": [
+        182,
+        171,
+        112,
+        238,
+        6,
+        219,
+        14,
+        110
+      ],
+      "accounts": [
+        {
+          "name": "poll",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  108,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "community"
+              },
+              {
+                "kind": "account",
+                "path": "community.total_polls",
+                "account": "Community"
+              }
+            ]
+          }
+        },
+        {
+          "name": "community",
+          "writable": true
+        },
+        {
+          "name": "membership"
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "question",
+          "type": "string"
+        },
+        {
+          "name": "options",
+          "type": {
+            "vec": "string"
+          }
+        },
+        {
+          "name": "end_time",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_community",
+      "discriminator": [
+        200,
+        51,
+        132,
+        44,
+        192,
+        86,
+        125,
+        41
+      ],
+      "accounts": [
+        {
+          "name": "community",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  109,
+                  109,
+                  117,
+                  110,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "name"
+              }
+            ]
+          }
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "join_community",
+      "discriminator": [
+        252,
+        106,
+        147,
+        30,
+        134,
+        74,
+        28,
+        232
+      ],
+      "accounts": [
+        {
+          "name": "membership",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  109,
+                  98,
+                  101,
+                  114,
+                  115,
+                  104,
+                  105,
+                  112
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "community"
+              },
+              {
+                "kind": "account",
+                "path": "member"
+              }
+            ]
+          }
+        },
+        {
+          "name": "community"
+        },
+        {
+          "name": "member",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Community",
+      "discriminator": [
+        192,
+        73,
+        211,
+        158,
+        178,
+        81,
+        19,
+        112
+      ]
+    },
+    {
+      "name": "Membership",
+      "discriminator": [
+        231,
+        141,
+        180,
+        98,
+        109,
+        168,
+        175,
+        166
+      ]
+    },
+    {
+      "name": "Poll",
+      "discriminator": [
+        110,
+        234,
+        167,
+        188,
+        231,
+        136,
+        153,
+        111
+      ]
+    },
+    {
+      "name": "Vote",
+      "discriminator": [
+        96,
+        91,
+        104,
+        57,
+        145,
+        35,
+        172,
+        155
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "You are not authorized for this action"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidOptionCount",
+      "msg": "Invalid number of options (must be between 2 and 4)"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidEndTime",
+      "msg": "Invalid end date"
+    },
+    {
+      "code": 6003,
+      "name": "NotApprovedMember",
+      "msg": "You are not an approved member of this community"
+    },
+    {
+      "code": 6004,
+      "name": "PollNotActive",
+      "msg": "The poll is not active"
+    },
+    {
+      "code": 6005,
+      "name": "PollExpired",
+      "msg": "The poll has expired"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidOptionIndex",
+      "msg": "Invalid option index"
+    },
+    {
+      "code": 6007,
+      "name": "UnauthorizedToClose",
+      "msg": "You are not authorized to close this poll"
+    }
+  ],
+  "types": [
+    {
+      "name": "Community",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "member_count",
+            "type": "u64"
+          },
+          {
+            "name": "total_polls",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Membership",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "community",
+            "type": "pubkey"
+          },
+          {
+            "name": "member",
+            "type": "pubkey"
+          },
+          {
+            "name": "is_approved",
+            "type": "bool"
+          },
+          {
+            "name": "joined_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Poll",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "community",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "question",
+            "type": "string"
+          },
+          {
+            "name": "options",
+            "type": {
+              "vec": "string"
+            }
+          },
+          {
+            "name": "vote_counts",
+            "type": {
+              "vec": "u64"
+            }
+          },
+          {
+            "name": "end_time",
+            "type": "i64"
+          },
+          {
+            "name": "total_votes",
+            "type": "u64"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vote",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "poll",
+            "type": "pubkey"
+          },
+          {
+            "name": "voter",
+            "type": "pubkey"
+          },
+          {
+            "name": "option_index",
+            "type": "u8"
+          },
+          {
+            "name": "voted_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
