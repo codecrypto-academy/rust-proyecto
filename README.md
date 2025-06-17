@@ -29,7 +29,6 @@ Sistema de gestión de comunidades que permite a los afiliados crear y participa
 ### Para Administradores
 - Crear y gestionar comunidades
 - Aprobar nuevos afiliados
-- Moderar preguntas y votaciones
 - Ver estadísticas de participación
 
 ### Para Afiliados
